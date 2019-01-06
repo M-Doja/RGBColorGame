@@ -3,6 +3,34 @@ body{
   margin: 0;
   font-family: "Montserrat", "Avenir";
 }
+button {
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  height: 100%;
+  font-weight: 700;
+  color: steelblue;
+  font-size: inherit;
+  outline: none;
+  letter-spacing: 1px;
+  font-size: inherit;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+}
+button:hover {
+  color:white;
+  background: steelblue
+}
+h1{
+  text-align: center;
+  margin: 0;
+  background: steelblue;
+  line-height: 1.1;
+  color: white;
+  font-weight: normal;
+  padding: 20px 0;
+}
 
 .instructions {
   text-decoration: none;
@@ -74,6 +102,7 @@ body{
   transition: background .5s;
   -webkit-transition: background .5s;
   -moz-transition: background .5s;
+  -o-transition: background .5s;
 }
 .container {
   max-width: 600px;
@@ -89,62 +118,22 @@ body{
 }
 .color-change {
   -webkit-animation:colorchange 20s infinite alternate;
+  -moz-animation:colorchange 20s infinite alternate;
+  -o-animation:colorchange 20s infinite alternate;
   animation:colorchange 20s infinite alternate;
 }
 @-webkit-keyframes colorchange {
-      0% {
-
-        color: blue;
-      }
-
-      10% {
-
-        color: #8e44ad;
-      }
-
-      20% {
-
-        color: #1abc9c;
-      }
-
-      30% {
-
-        color: #d35400;
-      }
-
-      40% {
-
-        color: blue;
-      }
-
-      50% {
-
-        color: #34495e;
-      }
-
-      60% {
-
-        color: blue;
-      }
-
-      70% {
-
-        color: #2980b9;
-      }
-      80% {
-
-        color: #f1c40f;
-      }
-
-      90% {
-
-        color: #2980b9;
-      }
-
-      100% {
-
-        color: pink;
-      }
+      0% {color: blue;}
+      10% {color: #8e44ad;}
+      20% {color: #1abc9c;}
+      30% {color: #d35400;}
+      40% {color: blue;}
+      50% {color: #34495e;}
+      60% {color: blue;}
+      70% {color: #2980b9;}
+      80% {color: #f1c40f;}
+      90% {color: #2980b9;}
+      100% {color: pink;}
     }
 
 #span-wrap {
@@ -156,18 +145,13 @@ body{
 #level {
   float: right
 }
-#level a {
-  /*padding: 5px;*/
-}
+
 span a {
   text-decoration: none;
   padding: 5px
 };
-span #newColor {
-  /*float: left*/
-}
+
 #msg {
-  /*margin: auto;*/
   display: inline-block;
   width: 20%;
   color: black;
@@ -183,40 +167,10 @@ span #newColor {
     padding-bottom: 0px;
   }
 }
-h1{
-  text-align: center;
-  margin: 0;
-  background: steelblue;
-  line-height: 1.1;
-  color: white;
-  font-weight: normal;
-  padding: 20px 0;
-}
+
 .up {
   text-transform: uppercase;
 }
 .outline {
   text-shadow: 1px 1px 3px black;
-}
-
-button {
-  border: none;
-  background: none;
-  text-transform: uppercase;
-  height: 100%;
-  font-weight: 700;
-  color: steelblue;
-  font-size: inherit;
-  outline: none;
-  letter-spacing: 1px;
-  font-size: inherit;
-  transition: all .3s;
-  -webkit-transition: all .3s;
-  -moz-transition: all .3s;
-}
-
-
-button:hover {
-  color:white;
-  background: steelblue
 }

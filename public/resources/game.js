@@ -1,9 +1,9 @@
-// var game = {};
-// game.init = function(){
-//   setUpModeBtn();
-//   setUpSquares();
-//   reset();
-// }
+const game = {};
+game.init = function(){
+  setUpModeBtn();
+  setUpSquares();
+  reset();
+}
 
 let colors = [];
 let squareNum = 6;
@@ -17,14 +17,9 @@ const easy = document.querySelector('#easy');
 const hard = document.querySelector('#hard');
 const modeBtn = document.querySelectorAll('.mode');
 
-init();
+game.init();
 
-function init(){
-  setUpModeBtn();
-  setUpSquares();
-  reset();
-}
-
+// Set up the mode between easy and hard
 function setUpModeBtn(){
   for (var i = 0; i < modeBtn.length; i++) {
     modeBtn[i].addEventListener('click', function(){
@@ -36,6 +31,9 @@ function setUpModeBtn(){
     });
   }
 }
+
+// When sqaures are clicked they are checked
+// to see if it matches the random value
 function setUpSquares(){
   for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function(){
@@ -56,10 +54,13 @@ function setUpSquares(){
     });
   }
 }
+
+// Disappear 'try again' message after 1.5 sec
 function fadeout(){
   msg.textContent = '';
 }
 
+// Re-populate square with random colors
 function reset(){
   colors = generateRandomColors(squareNum);
   pickedColor = pickColor();
@@ -83,19 +84,20 @@ newColor.addEventListener('click', function(){
   reset();
 });
 
-
-
+// show the correct color
 function changeColors(color) {
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = color;
   }
 }
 
+// Generating random color values
 function pickColor(){
   var random = Math.floor(Math.random() * colors.length);
   return colors[random]
 }
 
+// Generating color for color array
 function generateRandomColors(num){
   var arr = [];
   for (var i = 0; i < num; i++) {
@@ -104,13 +106,13 @@ function generateRandomColors(num){
   return arr;
 }
 
+// Display random color value
 function randomColor(){
   var r = Math.floor(Math.random() * 256);
   var g = Math.floor(Math.random() * 256);
   var b = Math.floor(Math.random() * 256);
   return `rgb(${r}, ${g}, ${b})`;
 }
-
 
 // Get the modal
 var modal = document.getElementById('myModal');
