@@ -12,52 +12,56 @@
     <link rel="stylesheet" href="resources/game.css">
   </head>
   <body>
-    <header>
-      <h1>
-        <span class="up outline"><b class="color-change">RGBmatic</b> </span> <br>
-        <span id="colorDisplay" class="outline" ></span> <br>
-        <small class="outline">
-          <a href="#" class="instructions" id="instruct">Instructions</a>
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
+    <div class="main-container">
+      <header>
+        <h1>
+          <span class="up outline"><b class="color-change">RGBmatic</b> </span> <br>
+          <span id="colorDisplay" class="outline" ></span> <br>
+          <small class="outline">
+            <a href="#" class="instructions" id="instruct">Instructions</a>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <u class="color-change">RGBmatic Instructions</u> <br>
-              <p>The object of the game is to match the rgb numeric color value listed in the top header with one of the colors shown below.</p>
-              <p>To play, simply select the colored square that you think is the match to the rgb value.</p>
-              <p>Tip: Remember the numeric value shown gives you the amount of red, green, and blue (rgb) used to create the color. On a scale of 0 to 256, the higher the numeric value, the more dominant the color will be.</p>
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <u class="">RGBmatic Instructions</u> <br>
+                <p>The object of the game is to match the rgb numeric color value listed in the top header with one of the colors shown below.</p>
+                <p>To play, simply select the colored square that you think is the match to the rgb value.</p>
+                <p>Tip: Remember the numeric value shown gives you the amount of red, green, and blue (rgb) used to create the color. On a scale of 0 to 256, the higher the numeric value, the more dominant the color will be.</p>
+              </div>
+
             </div>
 
-          </div>
-
-        </small>
-      </h1>
+          </small>
+        </h1>
 
 
-      <div class="center" style="padding:5px;">
-        <span id="msg" style="display:inline"></span>
+        <div class="center" style="padding:5px;">
+          <span id="msg" style="display:inline"></span>
+        </div>
+      </header>
+      <div id="span-wrap">
+        <button id="newColor">New Color</button>
+        <button class="mode" type="button">EASY</button>
+        <button class="selected mode" type="button">HARD</button>
       </div>
-    </header>
-    <div id="span-wrap">
-      <button id="newColor">New Color</button>
-      <button class="mode" type="button">EASY</button>
-      <button class="selected mode" type="button">HARD</button>
+      <section class="container-wrap">
+        <main class="container">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <section class="center footer">
+            <p style="color:white;margin:15px auto -0px;bottom:0;display:inline-block"> &copy; <span id="year"></span> Created by <a style="color:#fff;" href="https://devdoja.com" target="_blank">Dev Doja</a> </p>
+          </section>
+        </main>
+      </section>
+
     </div>
-    <section class="container-wrap">
-      <main class="container">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <section class="center ">
-          <p style="color:white;margin:15px auto -0px;bottom:0;display:inline-block"> &copy; <span id="year"></span> Created by <a style="color:#fff;" href="https://devdoja.com" target="_blank">Dev Doja</a> </p>
-        </section>
-      </main>
-    </section>
+
 
     <script type="text/javascript">
       var d = new Date();
