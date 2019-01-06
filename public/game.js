@@ -5,9 +5,9 @@
 //   reset();
 // }
 
-var colors = [];
-var squareNum = 6;
-var pickedColor;
+let colors = [];
+let squareNum = 6;
+let pickedColor;
 const h1 = document.querySelector('h1');
 const squares = document.querySelectorAll('.square');
 const colorSpan = document.getElementById('colorDisplay');
@@ -42,15 +42,22 @@ function setUpSquares(){
       var clickedSquare = this.style.backgroundColor;
       if (clickedSquare === pickedColor) {
         msg.textContent = 'Correct!';
+        msg.style.fontWeight = "bold";
+        msg.style.color = "red";
         changeColors(clickedSquare);
         h1.style.backgroundColor = clickedSquare;
-        newColor.textContent  = "Play Again?"
+        newColor.textContent  = "Play Again?";
       }else {
-        this.style.backgroundColor = '#232323';
-        msg.textContent = 'Try Again!'
+        this.style.backgroundColor = '#000';
+        msg.textContent = 'Try Again!';
+        msg.style.color = "white";
+        setTimeout(fadeout, 1500);
       }
     });
   }
+}
+function fadeout(){
+  msg.textContent = '';
 }
 
 function reset(){
@@ -67,7 +74,7 @@ function reset(){
       squares[i].style.display = 'none';
     }
   }
-  h1.style.backgroundColor = "steelblue";
+  h1.style.backgroundColor = "#777";
 }
 
 colorSpan.textContent = pickedColor;

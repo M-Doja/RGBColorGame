@@ -14,7 +14,9 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    title: 'RGBmatic'
+  });
 });
 
 app.use(function(err, req, res, next){
