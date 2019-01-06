@@ -3,18 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <meta name="description" content="RGBmatic is a HTML5 game where the object is to match one of the colors shown below with the rgb color value shown at the top.">
+    <meta name="author" content="Micah Dunson">
+    <meta name="keywords" content="red, green, blue, rgb, color, html5, game, javascript, css, pwa, progressive, web, app, ">
+    <title>RGBmatic</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" href="rgb.png" width='100'>
-    <link rel="stylesheet" href="game.css">
+    <link rel="shortcut icon" href="resources/images/rgb.png" width='100'>
+    <link rel="stylesheet" href="resources/game.css">
   </head>
   <body>
     <header>
       <h1>
-        <span class="up outline"><b>RGBmatic</b> </span> <br>
+        <span class="up outline"><b class="color-change">RGBmatic</b> </span> <br>
         <span id="colorDisplay" class="outline" ></span> <br>
-        <small class="outline">Match The Color</small>
+        <small class="outline">
+          <a href="#" class="instructions" id="instruct">Instructions</a>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <u class="color-change">RGBmatic Instructions</u> <br>
+              <p>The object of the game is to match the rgb numeric color value listed in the top header with one of the colors shown below.</p>
+              <p>To play, simply select the colored square that you think is the match to the rgb value.</p>
+              <p>Tip: Remember the numeric value shown gives you the amount of red, green, and blue (rgb) used to create the color. On a scale of 0 to 256, the higher the numeric value, the more dominant the color will be.</p>
+            </div>
+
+          </div>
+
+        </small>
       </h1>
+
+
       <div class="center" style="padding:5px;">
         <span id="msg" style="display:inline"></span>
       </div>
@@ -24,25 +45,37 @@
       <button class="mode" type="button">EASY</button>
       <button class="selected mode" type="button">HARD</button>
     </div>
-    <main class="container">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </main>
-    <script src="game.js" charset="utf-8"></script>
+    <section class="container-wrap">
+      <main class="container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <section class="center ">
+          <p style="color:white;margin:15px auto -0px;bottom:0;display:inline-block"> &copy; <span id="year"></span> Created by <a style="color:#fff;" href="https://devdoja.com" target="_blank">Dev Doja</a> </p>
+        </section>
+      </main>
+    </section>
+
+    <script type="text/javascript">
+      var d = new Date();
+      var year = d.getFullYear();
+      var y = document.getElementById('year');
+      y.textContent = year;
+    </script>
+    <script src="resources/game.js" charset="utf-8"></script>
   </body>
   <script>
-if ('serviceWorker' in navigator) {
-  console.log("Will the service worker register?");
-  navigator.serviceWorker.register('svcwkr.js')
-    .then(function(reg){
-      console.log("Yes, it did.");
-    }).catch(function(err) {
-      console.log("No it didn't. This happened: ", err)
-    });
-}
-</script>
+    if ('serviceWorker' in navigator) {
+      console.log("Will the service worker register?");
+      navigator.serviceWorker.register('svcwkr.js')
+        .then(function(reg){
+          console.log("Yes, it did.");
+        }).catch(function(err) {
+          console.log("No it didn't. This happened: ", err)
+        });
+    }
+  </script>
 </html>
