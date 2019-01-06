@@ -179,6 +179,9 @@ span #newColor {
   #colorDisplay {
     font-size:10vw;
   }
+  .main-container {
+    padding-bottom: 0px;
+  }
 }
 h1{
   text-align: center;
