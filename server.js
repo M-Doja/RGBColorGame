@@ -1,10 +1,10 @@
-const express = require('express'),
-      path = require('path'),
-      port = process.env.PORT || 3000,
-      bodyParser = require('body-parser'),
-      app = express();
+const express = require('express');
+const path = require('path');
+const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
+const app = express();
 
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'html');
