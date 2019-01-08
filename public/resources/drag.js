@@ -15,6 +15,12 @@ for (var i = 0; i < mainArray.length; i++)  {
   }
   ul.innerHTML = li;
 
+function remove(id){
+  mainArray.splice(id, 1);
+  localStorage.setItem('array', JSON.stringify(mainArray));
+  location.reload();
+}
+
   // Remove todo from localStorage by Index
 var button = document.querySelectorAll('button');
 for (var i = 0, len = button.length; i < len; i++) {
