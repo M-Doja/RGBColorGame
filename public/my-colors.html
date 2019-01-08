@@ -6,6 +6,9 @@
     <title>RGBmatic | My Colors</title>
     <link rel="stylesheet" href="resources/game.css">
     <link rel="stylesheet" href="/resources/color.css">
+    link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
   </head>
   <body style="text-align:center">
     <header>
@@ -19,11 +22,20 @@
     <ul id="columns" style="padding-left:0; margin:0 auto"></ul>
   </body>
   <script src="/resources/drag.js" charset="utf-8"></script>
-  <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-  <script src="/resources/touch.js" charset="utf-8"></script>
+  <script src="http://code.jquery.com/ui/1.8.24/jquery-ui.min.js"></script>
+
+ <!-- (Start) Add jQuery UI Touch Punch -->
+ <script src="/resources/touch.js" charset="utf-8"></script>
+ <!-- (End) Add jQuery UI Touch Punch -->
   <script type="text/javascript">
-    $('#widget').draggable();
+  $(document).bind('pageinit', function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
+  <!-- Refresh list to the end of sort to have a correct display -->
+  $( "#sortable" ).bind( "sortstop", function(event, ui) {
+    $('#sortable').listview('refresh');
+  });
+});
   </script>
   <!-- <script type="text/javascript">
   // Remove todo from localStorage by Index
