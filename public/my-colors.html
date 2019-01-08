@@ -34,7 +34,13 @@
 .ui-listview .ui-li-static, .ui-listview .ui-li-divider, .ui-listview>li>a.ui-btn {
   margin: 0 auto;
 }
-
+.ui-overlay-a a, .ui-page-theme-a a { color:black}
+a.mode.link .ui-overlay-a a, .ui-page-theme-a a:hover {background-color: steelblue;color:white;text-shadow: none;}
+.ui-page-theme-a {text-shadow: none;}
+a#instruct.instructions.ui-link {color:black}
+a#instruct.instructions:hover {
+  text-shadow: none;
+}
 </style>
  </head>
 <body class="pageType">
@@ -42,7 +48,7 @@
     <h1>
       <span class="up outline"><b class="color-change">RGBmatic</b> </span> <br>
     </h1><br>
-    <a href="/">< Back </a>
+    <a href="/" style="color:white;text-decoration:none;">< Back </a>
   </header>
   <h2 style="color:#fff;text-align:center">Saved Colors <br><small style="color: red; font-size:16px;">Drag colors to resort</small> </h2>
 <div>
