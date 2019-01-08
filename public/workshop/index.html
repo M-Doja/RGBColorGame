@@ -1,145 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <style media="screen">
-  [draggable] {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    /* Required to make elements draggable in old WebKit */
-    -khtml-user-drag: element;
-    -webkit-user-drag: element;
-  }
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example</title>
+ <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.css" />
+   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ <script src="https://code.jquery.com/mobile/1.4.0-alpha.2/jquery.mobile-1.4.0-alpha.2.min.js"></script>
 
-  #columns {
-    list-style-type: none;
-  }
+ <!-- (Start) Add the features of jQuery UI sortable -->
+ <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+ <script src="/resources/touch.js"></script>
+ <script>
+ $(document).bind('pageinit', function() {
+   $( "#sortable" ).sortable();
+   $( "#sortable" ).disableSelection();
+   <!-- Refresh list to the end of sort to have a correct display -->
+   $( "#sortable" ).bind( "sortstop", function(event, ui) {
+     $('#sortable').listview('refresh');
+   });
+ });
+ </script>
+ </head>
+<body>
+<div>
+  <div data-role="header" data-theme="d">
+    <h1>Example</h1>
+  </div>
 
-  .column {
-    width: 162px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    text-align: center;
-    cursor: move;
-  }
-  .column header {
-    height: 20px;
-    width: 150px;
-    color: black;
-    background-color: #ccc;
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-    border-radius: 10px;
-    border: 2px solid #666666;
-  }
-
-  .column.dragElem {
-    /* opacity: 0.4; */
-  }
-  .column.over {
-    //border: 2px dashed #000;
-    border-top: 2px solid blue;
-  }
-  </style>
-  <body>
-    <ul id="columns"></ul>
-
-    <script type="text/javascript">
-    var jsonArray = localStorage.getItem('array');
-    if (jsonArray) {
-      var mainArray = JSON.parse(jsonArray);
-    }else {
-      // Set empty storage array if no data exists
-      var mainArray = [];
-    }
-
-      var ul = document.getElementById('columns');
-      var li = '';
-    for (var i = 0; i < mainArray.length; i++)  {
-        li += `<li class="column" draggable="true"> <header style="background-color: ${mainArray[i]};">${mainArray[i]} <span></header></span></li>`;
-      }
-      ul.innerHTML = li;
-    var dragSrcEl = null;
-
-    function handleDragStart(e) {
-      // Target (this) element is the source node.
-      dragSrcEl = this;
-
-      e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/html', this.outerHTML);
-
-      this.classList.add('dragElem');
-    }
-    function handleDragOver(e) {
-      if (e.preventDefault) {
-        e.preventDefault(); // Necessary. Allows us to drop.
-      }
-      this.classList.add('over');
-
-      e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
-
-      return false;
-    }
-
-    function handleDragEnter(e) {
-      // this / e.target is the current hover target.
-    }
-
-    function handleDragLeave(e) {
-      this.classList.remove('over');  // this / e.target is previous target element.
-    }
-
-    function handleDrop(e) {
-      // this/e.target is current target element.
-
-      if (e.stopPropagation) {
-        e.stopPropagation(); // Stops some browsers from redirecting.
-      }
-
-      // Don't do anything if dropping the same column we're dragging.
-      if (dragSrcEl != this) {
-        // Set the source column's HTML to the HTML of the column we dropped on.
-        //alert(this.outerHTML);
-        //dragSrcEl.innerHTML = this.innerHTML;
-        //this.innerHTML = e.dataTransfer.getData('text/html');
-        this.parentNode.removeChild(dragSrcEl);
-        var dropHTML = e.dataTransfer.getData('text/html');
-        this.insertAdjacentHTML('beforebegin',dropHTML);
-        var dropElem = this.previousSibling;
-        addDnDHandlers(dropElem);
-
-      }
-      this.classList.remove('over');
-      return false;
-    }
-
-    function handleDragEnd(e) {
-      // this/e.target is the source node.
-      this.classList.remove('over');
-
-      /*[].forEach.call(cols, function (col) {
-        col.classList.remove('over');
-      });*/
-    }
-
-    function addDnDHandlers(elem) {
-      elem.addEventListener('dragstart', handleDragStart, false);
-      elem.addEventListener('dragenter', handleDragEnter, false)
-      elem.addEventListener('dragover', handleDragOver, false);
-      elem.addEventListener('dragleave', handleDragLeave, false);
-      elem.addEventListener('drop', handleDrop, false);
-      elem.addEventListener('dragend', handleDragEnd, false);
-
-    }
-
-    var cols = document.querySelectorAll('#columns .column');
-    [].forEach.call(cols, addDnDHandlers);
-
-
-    </script>
-  </body>
+  <div data-role="content" data-theme="c">
+    <ul data-role="listview" data-inset="true" data-theme="d" id="sortable">
+      <li data-role="list-divider">List</li>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+    </ul>
+  </div>
+</div>
+</body>
 </html>
