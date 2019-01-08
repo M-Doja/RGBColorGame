@@ -14,7 +14,8 @@
 
 .column {
   margin: auto;
-  width: 162px;
+  max-width: 250px;
+  width:100%;
   padding-bottom: 5px;
   padding-top: 5px;
   text-align: center;
@@ -22,7 +23,8 @@
 }
 .column header {
   height: 20px;
-  width: 150px;
+  max-width: 250px;
+  width:100%;
   color: black;
   background-color: #ccc;
   padding: 5px;
