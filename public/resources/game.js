@@ -88,7 +88,7 @@ var arr = [];
           console.log("ADDED To Array: "+mainArray);
           location.reload();
           msg.textContent = 'Color Saved';
-          setTimeout(fadeout, 1000);
+          setTimeout(fadeout, 2000);
         });
 
       }else {
