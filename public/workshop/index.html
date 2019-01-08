@@ -22,23 +22,65 @@
    });
  });
  </script>
+ <link rel="stylesheet" href="/resources/game.css">
+ <link rel="stylesheet" href="/resources/color.css">
+<style media="screen">
+  button.ui-btn { width:100px;float:right}
+  body {
+    text-align: center;
+  }
+  .ui-page {    background-color: #000;
+}
+.ui-listview .ui-li-static, .ui-listview .ui-li-divider, .ui-listview>li>a.ui-btn {
+  margin: 0 auto;
+}
+
+</style>
  </head>
 <body>
+  <header>
+    <h1>
+      <span class="up outline"><b class="color-change">RGBmatic</b> </span> <br>
+    </h1><br>
+    <a href="/">< Back </a>
+  </header>
+  <h2 style="color:#fff;text-align:center">Saved Colors <br><small style="color: red; font-size:16px;">Drag colors to resort</small> </h2>
 <div>
-  <div data-role="header" data-theme="d">
-    <h1>Example</h1>
-  </div>
 
-  <div data-role="content" data-theme="c">
-    <ul data-role="listview" data-inset="true" data-theme="d" id="sortable">
-      <li data-role="list-divider">List</li>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-      <li>Item 4</li>
-      <li>Item 5</li>
-    </ul>
+
+  <div data-role="content" data-theme="c" style="text-align:center">
+    <ul style="margin:auto;"data-role="listview" data-inset="true" data-theme="d" id="sortable"></ul>
   </div>
 </div>
+<script type="text/javascript">
+var jsonArray = localStorage.getItem('array');
+if (jsonArray) {
+  var mainArray = JSON.parse(jsonArray);
+}else {
+  // Set empty storage array if no data exists
+  var mainArray = [];
+}
+
+  var ul = document.getElementById('sortable');
+  var li = '';
+for (var i = 0; i < mainArray.length; i++)  {
+    li += `<li style="background-color: ${mainArray[i]};" class="column" draggable="true">
+  <b>${mainArray[i]}</b>
+    <span>
+    <button style="float:right width:100px;" onclick="remove(${i})" style="width:25px;">
+    <img  src="/resources/images/trash.png" width="15">
+    </button>
+    </span>
+    </li>`;
+  }
+  ul.innerHTML = li;
+
+  function remove(id){
+    alert('yo')
+    mainArray.splice(id, 1);
+    localStorage.setItem('array', JSON.stringify(mainArray));
+    location.reload();
+  }
+</script>
 </body>
 </html>
