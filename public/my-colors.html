@@ -37,7 +37,7 @@
 
 </style>
  </head>
-<body>
+<body class="pageType">
   <header>
     <h1>
       <span class="up outline"><b class="color-change">RGBmatic</b> </span> <br>
@@ -76,7 +76,6 @@ for (var i = 0; i < mainArray.length; i++)  {
   ul.innerHTML = li;
 
   function remove(id){
-    alert('yo')
     mainArray.splice(id, 1);
     localStorage.setItem('array', JSON.stringify(mainArray));
     location.reload();
