@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
   });
 });
 
+
 app.use(function(err, req, res, next){
   if(err.err) console.log("Error: "+ err.err);
   else console.log("Error: "+ err);
